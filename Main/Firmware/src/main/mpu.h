@@ -106,14 +106,14 @@ float* imu_get_ypr()
         mpu.dmpGetGravity(&gravity, &q);
         mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
 
-        //* display Euler angles in radians
+        // // * display Euler angles in radians
         // Serial.print("ypr\t");
-        // Serial.println(ypr[0], 5); // yaw
+        // Serial.print(ypr[0], 5); // yaw
         // Serial.print("\t");
-        // Serial.println(ypr[1],5);       //pitch
+        // Serial.print(ypr[1],5);       //pitch
         // Serial.print("\t");
-        // Serial.println(ypr[2],5);       //roll
-        // Serial.print("\t");
+        // Serial.print(ypr[2],5);       //roll
+        // Serial.println("\t");
     }
     return ypr;
 }
