@@ -1,10 +1,9 @@
 //PWM control for the motors 
 #include <Adafruit_NeoPixel.h>
+#include "config.h"
 
 
 
-#define NUMPIXELS 7
-#define RGB_PIN 4
 
 Adafruit_NeoPixel pixels(NUMPIXELS, 4, NEO_GRB + NEO_KHZ800);
 

@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "motor_brushles.h"
 #include "mpu.h"
+#include "led_rgb.h"
 
 #include "config.h"
 
@@ -14,14 +15,19 @@ bool connect = false;
 motor_brushless left_motor(MOTOR_LEFT_PIN);
 motor_brushless right_motor(MOTOR_RIGH_PIN);
 
+led_rgb LED ;
+
 void setup() {
+    LED.init();
+    LED.latch(100,AZUL);
 
     pinMode(2,OUTPUT);
 
     left_motor.init();
     right_motor.init();
-
+   
     imu_connect = imu_setup();
+
 
   if(imu_connect == 0) {
    
@@ -32,6 +38,11 @@ void setup() {
     pinMode(pinPot,INPUT);
 
     Serial.begin(112500);
+
+    delay(500);
+
+    LED.latch(100,AZUL);
+
 }
 
 void loop() {
@@ -43,15 +54,15 @@ void loop() {
 
     float* imu_ypr = imu_get_ypr(); 
 
-    Serial.print("pot: ");
-    Serial.print(val); 
-
     speed = map(val, 0, 4096,-100,100); 
+
+
+
 
     Serial.print(" motor: ");
     Serial.print(speed);
-
-
+    Serial.print("pot: ");
+    Serial.print(val); 
     Serial.print(" |IMU  Y :");
     Serial.print(imu_ypr[0]);
     Serial.print(" P : ");
