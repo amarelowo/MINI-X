@@ -13,3 +13,21 @@
 
 #define NUMPIXELS 7
 #define RGB_PIN 4
+
+
+// controle remoto do juiz 
+
+#define CR_PIN 34 
+
+// map button 
+
+#define ONE 0
+#define TWO 1
+#define TREE 2
+#define POWER 21
+
+
+//REFLETANCIA
+
+#define RFT_FRONT_PIN 27
+#define RFT_BACK_PIN 26

@@ -1,47 +1,23 @@
 #include <Arduino.h>
-#include "IRremote.h"
+#include "controle_juiz.h"
 
 #define ONE 0
 #define TWO 1
-#define TREE 3
+#define TREE 2
 #define POWER 21
 
-#define print Serial.print
+
+controle_juiz controle_sony(34);
 
 int last_button_pressed = 300; 
 int button_pressed = 300;
 
 void setup() {
   Serial.begin(112500);
-  IrReceiver.begin(34);
+  controle_sony.init();
 }
 void loop() {
-  if (IrReceiver.decode()) {
-    IrReceiver.resume();
-    button_pressed = IrReceiver.decodedIRData.command;
-  }
-
-  if(button_pressed != last_button_pressed){
-    Serial.println(button_pressed);
-  }
-
-  switch (button_pressed)
-  {
-  case ONE :
-   Serial.println("--> 1");
-    break;
-  case TWO :
-     Serial.println("--> 2");
-    break;
-  case TREE :
-    Serial.println("--> 3");
-    break;
-
-  case POWER :
-    Serial.println("--> PWR");
-    break;
-  }
-  last_button_pressed = button_pressed;
-  button_pressed = 300;
-  //  Serial.println(button_pressed);
+  
+  Serial.println(controle_sony.read());
+   
 }
