@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
 
+
 Servo esc;
 
 #define pinPot 25
