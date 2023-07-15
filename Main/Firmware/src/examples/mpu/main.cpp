@@ -11,7 +11,8 @@ bool _connect = false;
 
 void setup(){
 
-  Serial.begin(9600);
+  Serial.begin(112500);
+  pinMode(2, OUTPUT);
 
   // check that the IMU initializes correctly
   _imu_connect = imu_setup();
