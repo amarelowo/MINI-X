@@ -29,40 +29,40 @@ void setup (){
 
     
     // // // Desconectar o pinPROG e conectar o Vprog
-    // Serial.println("Aguardando troca de tensão: pinPROG --> Vprg");
-    // while(true){
-    //     if(digitalRead(pinBUTTON) == 0){
-    //         break;
-    //     }
-    //     Serial.print(".");
-    //     delay(1000);
-    // }
-    // Serial.println("");
-    // Serial.println("Vprog conectado, iniciando ciclo CLK");
+    Serial.println("Aguardando troca de tensão: pinPROG --> Vprg");
+    while(true){
+        if(digitalRead(pinBUTTON) == 0){
+            break;
+        }
+        Serial.print(".");
+        delay(1000);
+    }
+    Serial.println("");
+    Serial.println("Vprog conectado, iniciando ciclo CLK");
 
 
-    // // Inicio da programação do sensor com o Vprog ()
-    // for (byte i = 0 ; i < 16 ; i++){
-    //     digitalWrite (CLKpin, HIGH) ;
-    //     delayMicroseconds (2) ;
-    //     digitalWrite (CLKpin, LOW) ;
-    //     delayMicroseconds (2) ;
-    // }
+    // Inicio da programação do sensor com o Vprog ()
+    for (byte i = 0 ; i < 16 ; i++){
+        digitalWrite (CLKpin, HIGH) ;
+        delayMicroseconds (2) ;
+        digitalWrite (CLKpin, LOW) ;
+        delayMicroseconds (2) ;
+    }
 
-    // // Desconectar o Vprog e conectar o 0V
-    // delay(2000);
-    // Serial.println("Ciclo CLK concluido, alterar Vprog para 0V");
-    // while(true){
-    //     if(digitalRead(pinBUTTON) == 0){
-    //         break;
-    //     }
-    //     Serial.print(".");
-    //     delay(1000);
-    // }
-    // Serial.println("");
-    // Serial.println("Termino do procedimento");
+    // Desconectar o Vprog e conectar o 0V
+    delay(2000);
+    Serial.println("Ciclo CLK concluido, alterar Vprog para 0V");
+    while(true){
+        if(digitalRead(pinBUTTON) == 0){
+            break;
+        }
+        Serial.print(".");
+        delay(1000);
+    }
+    Serial.println("");
+    Serial.println("Termino do procedimento");
 
-    // digitalWrite(CSpin, LOW);
+    digitalWrite(CSpin, LOW);
 
 }
 
